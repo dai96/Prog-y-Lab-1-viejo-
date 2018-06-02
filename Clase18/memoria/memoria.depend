@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1527863517 source:c:\users\alumno\desktop\laboratorio-i-programacion-i\clase18\memoria\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1527943168 source:c:\users\alumno\desktop\laboratorio-i-programacion-i-master\clase18\memoria\main.c
+	<stdio.h>
+	<stdlib.h>
+
