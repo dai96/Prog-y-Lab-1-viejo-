@@ -129,12 +129,21 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
     int auxId;
 
     printf("Ingrese numero de id");
+    fflush(stdin);
     scanf("%d",&auxId);
+    auxId--;
 
+    pEmployee=ll_get(pArrayListEmployee,auxId);
     ll_remove(pArrayListEmployee,auxId);
+    free(pEmployee);
+    printf("everything is awesome");
     return 1;
 }
 
+
+//cada vez que doyde alta guardar los ids en un archivo...
+//contador,empieza en 1.. el primer id es uno guardar este contador en unarchivo
+//guardar en unbinario el id
 /** \brief Listar empleados
  *
  * \param path char*
@@ -144,18 +153,22 @@ int controller_removeEmployee(LinkedList* pArrayListEmployee)
  */
 int controller_ListEmployee(LinkedList* pArrayListEmployee)
 {
-        Employee* pEmployee;
-        int len,i;
+   Employee* pEmployee;
+   int cont=0,id;
 
-        len=ll_len(pArrayListEmployee);
 
-        for (i=0;i<5;i++)
+    if(pArrayListEmployee!=NULL)
+    {
+        for(int i=0;i<5;i++)
         {
             pEmployee=ll_get(pArrayListEmployee,i);
-            printf("\n%d,%s,%d,%d",pEmployee->id,pEmployee->nombre,pEmployee->horasTrabajadas,pEmployee->sueldo);
+            employee_getId(pEmployee,&id);//esto gardadirectamente en el &...
+            printf("%d %s %d %d\n",id,pEmployee->nombre,pEmployee->horasTrabajadas,pEmployee->sueldo);
         }
+    }
 
     return 1;
+
 }
 
 /** \brief Ordenar empleados
@@ -165,9 +178,61 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
  * \return int
  *
  */
+ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order);
+
+ int ordenar (char* nombre, char* nombre2)
+ {
+     int retorno;
+
+     retorno=strcmp(nombre,nombre2);//si me da
+
+     return retorno;
+ }
+
+ int employee_compararId(void* employeeUno, void* employeeDos)
+{
+    int retorno = 0;
+
+    Employee* empleadoUno;
+    Employee* empleadoDos;
+
+    if(employeeUno !=NULL && employeeDos !=NULL)
+        {
+            empleadoUno = (Employee*) employeeUno;
+            empleadoDos = (Employee*) employeeDos;
+            if((empleadoUno->id) < (empleadoDos->id))
+            {
+                retorno = 1 ;
+            }
+            else if((empleadoUno->id) == (empleadoDos->id))
+            {
+                retorno = 0;
+            }
+            else if((empleadoUno->id) > (empleadoDos->id))
+            {
+                retorno = -1 ;
+            }
+
+        }
+
+    return retorno;
+}
+
 int controller_sortEmployee(LinkedList* pArrayListEmployee)
 {
-    return 1;
+
+    int retorno = -1;
+    //YOOOLinkedList* listaAux = ll_newLinkedList();
+    //YOOOOOlistaAux=ll_clone(pArrayListEmployee);
+   if(pArrayListEmployee!=NULL)
+   {
+        printf("\n Ordenamiento por ID\n");
+        ll_sort(pArrayListEmployee,employee_compararId, 1);
+        controller_ListEmployee(pArrayListEmployee);
+       retorno =1;
+   }
+
+    return retorno;
 }
 
 /** \brief Guarda los datos de los empleados en el archivo data.csv (modo texto).
