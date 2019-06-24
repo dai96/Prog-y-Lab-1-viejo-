@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1561160528 source:c:\users\daira\desktop\herramientasparcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<strings.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"funciones.h"
+
+1561160549 c:\users\daira\desktop\herramientasparcial\funciones.h
+
+1561159069 source:c:\users\daira\desktop\herramientasparcial\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"linkedList.h"
+
+1561160687 c:\users\daira\desktop\herramientasparcial\linkedlist.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1561333487 source:c:\users\daira\desktop\herramientasparcial\parserr.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"linkedList.h"
+	"stuct.h"
+	"parserr.h"
+
+1561161000 c:\users\daira\desktop\herramientasparcial\stuct.h
+
+1561327787 source:c:\users\daira\desktop\herramientasparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"linkedList.h"
+	"Controller.h"
+	"stuct.h"
+	"funciones.h"
+	"parserr.h"
+
+1561159329 c:\users\daira\desktop\herramientasparcial\controller.h
+
+1561330348 source:c:\users\daira\desktop\herramientasparcial\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"linkedList.h"
+	"stuct.h"
+	"parserr.h"
+
+1561333443 source:c:\users\daira\desktop\herramientasparcial\stuct.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"linkedList.h"
+	"stuct.h"
+
+1561159469 c:\users\daira\desktop\herramientasparcial\parserr.h
+
